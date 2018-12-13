@@ -1,0 +1,33 @@
+@model WebApplication1.Models.PlayerViewIndex
+
+<div id="players">
+    <h3>Players</h3>
+    <div id="playersTable">
+        <table class="table table-condensed" id="playerIndexTable">
+            <thead><tr>
+                <th>Type</th>
+                <th>Image</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Cost</th>
+            </tr></thead>
+            <tbody>
+            @foreach (var player in Model.Players) {
+                <tr class="playerRow">
+                    <td class="">@player.PlayerType</td>
+                    <td class="">
+                        <a asp-controller="Players" asp-action="PlayerDetail" asp-route-id="@player.Id">
+                            <img class="" src="@player.ImageUrl"/>
+                        </a>
+                        
+                    </td>
+                    <td class="">@player.FirstName</td>
+                    <td class="">@player.LastName</td>
+                    <td class="">@player.SalaryCost</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+

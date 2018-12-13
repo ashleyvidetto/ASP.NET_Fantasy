@@ -1,0 +1,28 @@
+@model WebApplication1.Models.PlayerDetailModel
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">@Model.FirstName @Model.LastName's Details</h2>
+    </div>    
+</div>
+
+<div class="large-image">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.ImageUrl"/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p id="recentNews">This will display recent news once implemented. Click below for Twitter info</p>
+            <p><a class="btn list-group btn-info" role="button" asp-controller="Players" asp-action="SearchTwitter" asp-route-id="@Model.PlayerId">&nbsp;&nbsp;Twitter Info</a></p>
+            @if (@Model.RecentNews != null){
+                foreach(var news in Model.RecentNews)
+                {
+                    <h3>@news</h3>
+                }
+            }
+        </div>
+    </div> 
+</div>
+ 
